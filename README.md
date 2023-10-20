@@ -7,6 +7,7 @@ Android studio
 Laporan Ujian Tengah Semester 
 
 !. Syntax 1
+
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,8 +32,10 @@ konten dari MainMenu.Selain itu, kode ini juga menggunakan tema yang disebut UTS
 keseluruhan aplikasi.
 
 2 Syntax 2
+
 @Composable
 fun MainMenu(){
+   
     var currentImage by remember { mutableStateOf(1) }
     Surface(
         modifier = Modifier.fillMaxSize())
@@ -82,8 +85,11 @@ seperti imageResource, nameResource, dan authorResource yang mengacu pada sumber
 pada tampilan gambar, currentImage akan diubah untuk memperbarui tampilan sesuai dengan gambar berikutnya atau sebelumnya, tergantung pada kondisi saat ini.
 
 3.Syntax 3
+
 @Composable
+
 fun MainMenuImage(
+   
     imageResource: Int,
     nameResource: Int,
     authorResource: Int,
@@ -92,6 +98,7 @@ fun MainMenuImage(
     modifier: Modifier = Modifier
 )
 {
+   
     Box(modifier = Modifier.fillMaxSize()) {
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
@@ -165,10 +172,13 @@ hierarkis dan diberikan ke Box, yang mengisi seluruh layar dengan elemen-elemen 
 4.Syntax 4
 @Composable
 fun CustomButton(
+    
     onClick: () -> Unit,
     modifier: Modifier,
     text: String
-) {
+) 
+{
+    
     Button(
         onClick = { onClick() },
         modifier = modifier
@@ -176,9 +186,11 @@ fun CustomButton(
         Text(text = text, Modifier.padding(12.dp, 0.dp))
     }
 }
+
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
+    
     UTSReny4Theme {
         MainMenu()
     }
