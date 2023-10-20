@@ -8,12 +8,12 @@ Laporan Ujian Tengah Semester
 
 !. Syntax 1
 
-class MainActivity : ComponentActivity() {
+    class MainActivity :ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             UTSReny4Theme {
-
+            
                 Surface(
                     modifier = Modifier.fillMaxSize(),
 
@@ -22,9 +22,9 @@ class MainActivity : ComponentActivity() {
                 }
             }
         }
+    } 
     }
-}
-
+    
 source code dibawah ini berfungsi untuk memberi definisi dari kelas MainActivity yang merupakan aktivitas utama dalam aplikasi. 
 aktivitas ini dibuat, metode onCreate akan dipanggil dan berfungsi untuk mengatur tampilan aktivitas menggunakan framework UI yang 
 disebut "Jetpack Compose." Tampilan utama ini dibangun dengan menggunakan komponen Surface yang mengisi seluruh layar dan menampilkan 
@@ -33,9 +33,8 @@ keseluruhan aplikasi.
 
 2 Syntax 2
 
-@Composable
-fun MainMenu(){
-   
+    @Composable
+    fun MainMenu(){   
     var currentImage by remember { mutableStateOf(1) }
     Surface(
         modifier = Modifier.fillMaxSize())
@@ -76,7 +75,7 @@ fun MainMenu(){
             }
         }
     }
-}
+    }
 Potongan source code diatas adalah fungsi MainMenu yang menggunakan Compose. Fungsi ini membangun tampilan utama dalam layar. 
 Pada fungsi ini, terdapat variabel currentImage yang digunakan untuk mengontrol gambar yang ditampilkan.Pertama, fungsi ini mengatur 
 tampilan Surface agar mengisi seluruh layar.Kemudian, terdapat blok when yang bergantung pada nilai currentImage. Terdapat empat kondisi yang berbeda, 
@@ -86,19 +85,14 @@ pada tampilan gambar, currentImage akan diubah untuk memperbarui tampilan sesuai
 
 3.Syntax 3
 
-@Composable
-
-fun MainMenuImage(
-   
+    @Composable
+    fun MainMenuImage(
     imageResource: Int,
     nameResource: Int,
     authorResource: Int,
     onNextButtonClick: () -> Unit,
     onPreviousButtonClick: () -> Unit,
-    modifier: Modifier = Modifier
-)
-{
-   
+    modifier: Modifier = Modifier){
     Box(modifier = Modifier.fillMaxSize()) {
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
@@ -158,8 +152,8 @@ fun MainMenuImage(
             }
         }
     }
-}
-
+    }
+    
 Potongan source code dengan nama MainMenuImage yang merupakan komponen Composable dalam aplikasi Android. Fungsi ini bertujuan untuk
 membangun tampilan gambar dengan detail yang terdiri dari gambar itu sendiri, judul, pengarang, dan tombol "Previous" dan "Next". 
 Berikut adalah penjelasan singkat dari Fungsi MainMenuImage menerima berbagai parameter, seperti imageResource (gambar yang akan ditampilkan), 
@@ -170,32 +164,55 @@ Beberapa modifikasi juga diterapkan menggunakan Modifier untuk mengatur tata let
 hierarkis dan diberikan ke Box, yang mengisi seluruh layar dengan elemen-elemen yang ditempatkan di dalamnya
 
 4.Syntax 4
-@Composable
-fun CustomButton(
+
+    @Composable
+    fun CustomButton(
     
     onClick: () -> Unit,
     modifier: Modifier,
-    text: String
-) 
-{
-    
-    Button(
-        onClick = { onClick() },
-        modifier = modifier
-    ) {
-        Text(text = text, Modifier.padding(12.dp, 0.dp))
+    text: String)
+    {
+        Button(
+            onClick = { onClick() },
+            modifier = modifier
+    )     
+        {
+            Text(text = text, Modifier.padding(12.dp, 0.dp))
+        }
     }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun DefaultPreview() {
-    
+    @Preview(showBackground = true)
+    @Composable
+    fun DefaultPreview() { 
     UTSReny4Theme {
-        MainMenu()
+            MainMenu()
+        }
     }
-}
 CustomButton memiliki fungsi komponen Composable yang digunakan untuk membuat tombol kustom. Fungsi ini menerima tiga parameter: onClick (tindakan yang akan dijalankan saat tombol diklik),
 modifier (modifikasi tampilan tombol), dan text (teks yang akan ditampilkan pada tombol). Fungsi ini mengandung sebuah Button yang akan mengeksekusi onClick saat tombol diklik, 
 dan menampilkan teks pada tombol. DefaultPreview: Ini adalah fungsi komponen Composable yang digunakan untuk menampilkan tampilan awal atau pratinjau dari aplikasi 
 Fungsi ini menggambarkan tampilan utama menggunakan tema  UTSReny4Theme dan menampilkan MainMenu sebagai konten awal yang akan ditampilkan dalam pratinjau aplikasi.
+
+5.Syntax 5
+
+    
+    <resources>
+    
+    <string name="app_name">UTSReny4</string>
+    <string name="previous">Previous</string>
+    <string name="next">Next</string>
+    <string name="L1">Zulhas Sudah di Jakarta Jelang Penentuan Cawapres Prabowo</string>
+    <string name="L2">Pangkalan AS di Irak Diserang Rentetan Roket-Drone</string>
+    <string name="L3">Vonis 12 Tahun Bui Masih Terus Dilawan Mario Dandy</string>
+    <string name="L4">Demo Mahasiswa di Patung Kuda Ricuh, 2 Pendemo Diamankan Polisi</string>
+    <string name="Creator"> Published By : Firda Cynthia Anggrainy</string>
+    
+    </resources>
+Syntax siatas adalah bagian dari file XML yang digunakan dalam pengembangan aplikasi . File ini terdapat pada folder res/values/strings.xml, 
+yang digunakan untuk mendefinisikan dan mengatur sumber daya string dalam aplikasi Android. Berikut beberapa penjelasan untuk tiap fungsinya
+Tag <resources merupakan  elemen root yang mengelilingi semua definisi dalam file XML. Seperti :
+<string name="app_name">UTSReny4</string> memiliki definisi dengan  "app_name" dan valuenya adalah "UTSReny4". syntax ini digunakan untuk menentukan nama aplikasi.
+<string name="L1">Zulhas Sudah di Jakarta Jelang Penentuan Cawapres Prabowo</string>: Ini adalah definisi sumber daya string dengan nama "L1" dan valuenya adalah teks berita atau konten tertentu.
+<string name="Creator"> Published By : Firda Cynthia Anggrainy</string>: Ini adalah definisi sumber daya string dengan nama "Creator" dan nilainya adalah informasi tentang penulis atau penerbit konten.
+
+
+
